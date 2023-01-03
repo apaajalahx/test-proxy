@@ -11,5 +11,5 @@ check proxy if can access web who using cloudflare protection.
 
 note: check proxy_live.txt before use this.
 ```
- python3 --file proxy_live.txt --cf --pattern 'https://cloudflare.com/' --target 'https://rapiddns.com' --timeout 10
+ python3 proxy_test.py --file proxy_live.txt --cf --pattern https://www.cloudflare.com --target https://rapiddns.io/ --timeout 10
 ```
