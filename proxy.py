@@ -47,8 +47,10 @@ def main(proxy, target_web = 'https://rapiddns.io/', pattern='https://www.cloudf
             print('Proxy Not support to access rapiddns : {}'.format(proxy))
     except ConnectionError:
         print('Proxy Connection Error : {}'.format(proxy))
+    except TimeoutError:
+        print('Proxy Timeout Error : {}'.format(proxy))
     except Exception as e:
-        print(e)
+        print('Error : {}'.format(proxy))
     except:
         print('Proxy Unknow Error : {}'.format(proxy))
 
@@ -64,7 +66,7 @@ if __name__ == '__main__':
     timeout = 10
     if args.timeout:
         if args.timeout != '':
-            timeout = args.timeout
+            timeout = int(args.timeout)
     if args.check_version:
         io = open(args.file, 'r').read().splitlines()
         for i in io:
@@ -82,4 +84,4 @@ if __name__ == '__main__':
         for i in io:
             main(i, target_web=target, pattern=pattern, timeout=timeout)
     else:
-        parser.print_()
+        parser.print_help()
